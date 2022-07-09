@@ -54,11 +54,11 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /root/node-test
-          npm run stop
+          cd /root/apiManageBE
           rm -rf *
-          wget https://github.com/Can-Chen/api-manage-BE/releases/latest/download/release.tgz -O release.tgz
+          wget --no-cookie --no-check-certificate https://github.com/GuiJiDuoDuanZero/api-manage-BE/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
-          npm install --production
+          npm install
           npm run tsc
+          npm run stop
           npm run start
