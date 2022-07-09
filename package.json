@@ -21,7 +21,8 @@
     "lint": "eslint . --ext .ts",
     "clean": "ets clean",
     "switch:personal": "git remote rm origin && git remote add origin https://gitee.com/Can-Chen/egg-serve.git ",
-    "switch:team": "git remote rm origin && git remote add origin https://github.com/8Class2Groups/api-manage-BE.git"
+    "switch:team": "git remote rm origin && git remote add origin https://github.com/8Class2Groups/api-manage-BE.git",
+    "switch:personal-github": "git remote rm origin && git remote add origin https://github.com/Can-Chen/api-manage-BE.git"
   },
   "dependencies": {
     "egg": "^2.6.1",
