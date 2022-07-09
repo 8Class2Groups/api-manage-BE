@@ -1,8 +1,8 @@
 name: api-manage-BE ci
-on:
-  push:
-    tags:
-      - 'release-v*'
+on: [push]
+  # push:
+  #   tags:
+  #     - 'release-v*'
 
 jobs:
   build-and-deploy:
