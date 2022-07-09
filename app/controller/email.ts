@@ -1,22 +1,15 @@
 import { Controller } from 'egg';
-import { EMIAL_EXPRIED_TIME, EMAIL_REDIS_KEY_TYPE } from '../chore/email.constant';
+import { EMIAL_EXPRIED_TIME, EMAIL_REDIS_KEY_TYPE } from '../chore/constants/email.constant';
+import { vEmail } from '../chore/validates/email';
 
 class EmailController extends Controller {
-
-  private vEmail() {
-    return {
-      email: { type: 'string', required: true },
-      username: { type: 'string', required: true },
-      type: { type: 'string', required: true }
-    }
-  };
 
   public async sendEmail() {
     const { ctx } = this;
 
     try {
       const query = ctx.request.query;
-      ctx.validate(this.vEmail(), query);
+      ctx.validate(vEmail(), query);
       const userInfo = await ctx.service.user.findEmail(query);
       const type = EMAIL_REDIS_KEY_TYPE[query.type] === 0;
       if (type) {

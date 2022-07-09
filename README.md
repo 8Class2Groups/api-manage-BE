@@ -1,8 +1,8 @@
-# hackernews-async-ts
+# 接口管理平台后端
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
-
-## QuickStart
+### 调试方式
+- 参考接口文档
+- npm run dev
 
 ### Development
 

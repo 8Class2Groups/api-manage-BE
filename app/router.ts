@@ -1,27 +1,17 @@
 import { Application } from 'egg';
-import { EMAIL_REDIS_KEY_TYPE } from './chore/email.constant';
+import routes from './routes';
 
 export default (app: Application) => {
-  const { controller, router, middleware } = app;
+  const { controller, router } = app;
 
   /**
    * @desc 发送邮件
    */
-  router.get('/email', controller.email.sendEmail);
+  router.get('/v0/email', controller.email.sendEmail);
 
   /**
-   * @desc 注册
+   * @desc 业务接口拆分
    */
-  router.post('/register', middleware.emailCodeCheck(EMAIL_REDIS_KEY_TYPE.register), controller.user.register);
-
-  /**
-   * @desc 登录
-   */
-  router.post('/login', controller.user.login);
-
-  /**
-   * @desc 忘记密码
-   */
-  router.put('/forget', middleware.emailCodeCheck(EMAIL_REDIS_KEY_TYPE.forget), controller.user.forget);
+  routes(app);
 };
 
