@@ -16,7 +16,7 @@ jobs:
     # 打包构建
     - name: Build
       uses: actions/setup-node@master
-#     - run: zip -q -r release.zip *
+    # - run: zip -q -r release.zip *
     # - run: npm install
     # - run: npm run build
     - run: tar -zcvf release.tgz *
@@ -57,8 +57,8 @@ jobs:
           cd /root/node-test
           npm run stop
           rm -rf *
-          wget https://github.com/Can-Chen/api-manage-BE/releases/latest/download/release.zip -O release.zip
-          unzip release.zip
+          wget https://github.com/Can-Chen/api-manage-BE/releases/latest/download/release.tgz -O release.tgz
+          tar zxvf release.tgz
           npm install --production
           npm run tsc
           npm run start
