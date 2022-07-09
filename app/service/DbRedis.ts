@@ -12,7 +12,6 @@ class DbRedis extends Service {
   public async set<T>(key: string, value: T, seconds?: number) {
     const { redis } = this.app;
     const strValue = JSON.stringify(value);
-
     if (!seconds) {
       await redis.set(key, strValue);
     } else {
