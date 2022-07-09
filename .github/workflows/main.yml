@@ -28,8 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+#         tag_name: ${{ github.ref }}
+#         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
 
@@ -57,7 +57,7 @@ jobs:
           cd /root/node-test
           npm run stop
           rm -rf *
-          wget https://github.com/8Class2Groups/api-manage-BE/releases/latest/download/release.zip -O release.zip
+          wget https://github.com/Can-Chen/api-manage-BE/releases/latest/download/release.zip -O release.zip
           unzip release.zip
           npm install --production
           npm run tsc
