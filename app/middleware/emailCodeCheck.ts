@@ -1,4 +1,4 @@
-import { EMAIL_REDIS_KEY_TYPE } from '../chore/constants/email.constant';
+import { EMAIL_REDIS_KEY_TYPE } from '../chore/email.constant';
 import { Context } from 'egg';
 
 export default (type: EMAIL_REDIS_KEY_TYPE) => {
